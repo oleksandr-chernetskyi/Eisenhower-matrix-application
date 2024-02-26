@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users-into-users-table
+      author: Barmaley
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column: {name: email, value: "admin@gmail.com"}
+              - column: {name: password, value: "$2a$12$wZTYVMhTdP1HTEs3L2WkF.r3VLYAOA0Ojp0Ru/g.OXkGI7/UBDnbW"}
+              - column: {name: first_name, value: "Rick"}
+              - column: {name: last_name, value: "Sanchez"}
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: email, value: "user@gmail.com" }
+              - column: { name: password, value: "$2a$12$2fu209mPECoJIjTOwRvhce6jg/y8NKGhJ/0kkU40bZMDIEGykzpX2" }
+              - column: { name: first_name, value: "Morty" }
+              - column: { name: last_name, value: "Smith" }
