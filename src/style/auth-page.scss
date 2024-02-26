@@ -1,0 +1,110 @@
+@import "./utils/fonts";
+@import "./utils/mixins";
+@import "./utils/vars";
+
+.auth-page {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 413px;
+  border: 2px solid $main-color;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  background-color: $color-white;
+  border-top: none;
+  padding: 30px 10px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    &--item {
+      position: relative;
+      display: inline-block;
+    }
+  }
+
+  &__input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 361px;
+    height: 40px;
+
+    &--label {
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 0;
+      transition: 0.2s;
+      transition-timing-function: ease;
+      transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+      opacity: 0.5;
+      color: $main-color;
+      font-family: 'Poppins-Regular', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+      background-color: $color-white;
+    }
+
+    @include onMobile {
+      width: 200px;
+    }
+
+    &:focus {
+      border-left-width: 0;
+      border-right-width: 0;
+    }
+    &:active {
+      border-top-width: 0;
+      border-left-width: 0;
+      border-right-width: 0;
+    }
+  }
+
+  &__button {
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Poppins-Regular', sans-serif;
+    border-radius: 12px;
+    border: 2px solid $main-color;
+    background-color: $main-color;
+    color: $color-white;
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: transform 0.3s;
+    
+    &:hover {
+      background-color: $color-white;
+      color: $main-color;
+      box-shadow: 0 0 3px 0 $main-color;
+    }
+  }
+
+  &__text {
+    font-family: 'Poppins-Regular', sans-serif;
+    border-radius: 12px;
+
+    &--link {
+      text-decoration: none;
+    }
+  }
+}
+
+input:focus + label, input:not(:placeholder-shown) + label {
+  opacity: 1;
+  transform: translateY(-80%);
+}
+
+input:focus{
+  outline: none;
+}

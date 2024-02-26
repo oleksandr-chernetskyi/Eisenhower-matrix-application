@@ -1,40 +1,34 @@
 import React from 'react';
 
+import './style/main.scss';
+import { Outlet, useLocation } from 'react-router-dom';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer/Footer';
+
 export const App: React.FC = () => {
+  const location = useLocation();
+
+  const isProfilePage = location.pathname.includes('/profile');
+
   return (
     <>
-      <header>
-        <h1>Eisenhower Matrix Notebook</h1>
-      </header>
-      <main>
-        <section id="important-urgent">
-          <h2>Important & Urgent</h2>
-          <ul className="task-list">
-            Task items will go here
-          </ul>
-        </section>
-        <section id="important-not-urgent">
-          <h2>Important & Not Urgent</h2>
-          <ul className="task-list">
-            Task items will go here
-          </ul>
-        </section>
-        <section id="not-important-urgent">
-          <h2>Not Important & Urgent</h2>
-          <ul className="task-list">
-            Task items will go here
-          </ul>
-        </section>
-        <section id="not-important-not-urgent">
-          <h2>Not Important & Not Urgent</h2>
-          <ul className="task-list">
-            Task items will go here
-          </ul>
-        </section>
-      </main>
-      <footer>
-        <p>&copy; 2024 Eisenhower Matrix Notebook</p>
-      </footer>
+        {isProfilePage 
+      ? (
+        <div className='profile'>
+          <Header />
+            <main>
+              <Outlet />
+            </main>
+        </div>
+      ) : (
+        <>
+          <Header />
+            <main>
+              <Outlet />
+            </main>
+          <Footer />
+        </>
+      )}
     </>
   );
 };

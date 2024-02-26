@@ -1,0 +1,48 @@
+@import "./utils/fonts";
+@import "./utils/mixins";
+@import "./utils/vars";
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    &:nth-child(2) {
+      margin-top: 30px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    font-family: "Poppins-SemiBold", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration: none;
+    color: $main-color;
+
+    transition: opacity 0.3s ease;
+
+    &--button {
+      background-color: $color-header;
+      border: none;
+      cursor: pointer;
+    }
+
+    &--act {
+      background-color: $main-color;
+      color: $color-white;
+      border-radius: 12px;
+    }
+  }
+}

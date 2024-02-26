@@ -1,0 +1,50 @@
+@import "./utils/fonts";
+@import "./utils/mixins";
+@import "./utils/vars";
+
+.nav-for-authentication {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+
+  &__link {
+    display: flex;
+    border: 2px solid $main-color;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    padding: 10px 70px;
+    
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 18px;
+    color: $main-color;
+
+    transition: transform 0.3s;
+    cursor: pointer;
+
+    @include onPhone {
+      padding: 10px 50px;
+    }
+
+    &:link {
+      color: $main-color;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $main-color;
+      text-decoration: none;
+      box-shadow: 0 0 3px 0 $main-color;
+    }
+
+    &--act {
+      background-color: $main-color;
+      color: $color-white;
+      box-shadow: 0 0 3px 0 $main-color;
+
+      &:hover {
+        color: $color-white;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "./utils/fonts";
+@import "./utils/mixins";
+@import "./utils/vars";
+
+.profile {
+  display: flex;
+  
+  &__header {
+    // position: fixed;
+    height: 100vh;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: $color-header;
+  }
+  &__title {
+    font-family: "Poppins-Regular";
+    padding: 10px 20px;
+  }
+}
