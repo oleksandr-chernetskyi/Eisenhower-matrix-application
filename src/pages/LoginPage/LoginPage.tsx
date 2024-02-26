@@ -11,20 +11,29 @@ export const LoginPage: React.FC = () => {
   return (
     <div className="container background">
       <div className="auth-page">
-        {/* Форма для входу */}
         <form onSubmit={handleLogin} className='auth-page__form'>
-          <input 
-            type="email" 
-            placeholder="E-mail" 
-            className='auth-page__input' 
-            required
-          />
-          <input 
-            type="password" 
-            placeholder="Password"
-            className='auth-page__input' 
-            required
-          />
+          <div className='auth-page__form--item'>
+            <input 
+              type="email" 
+              name="email" 
+              id="Email" 
+              placeholder=" " 
+              className='auth-page__input' 
+              required
+            />
+            <label className="auth-page__input--label" htmlFor="Email">E-mail</label>
+          </div>
+          <div className='auth-page__form--item'>
+            <input 
+              type="password" 
+              placeholder=""
+              id="Password"
+              name="Password"
+              className='auth-page__input' 
+              required
+            />
+            <label className="auth-page__input--label" htmlFor="Password">Password</label>
+          </div>
           <button
             type="submit"
             className='auth-page__button' 
@@ -32,7 +41,6 @@ export const LoginPage: React.FC = () => {
             Sign in
           </button>
         </form>
-        {/* Посилання на сторінку реєстрації */}
         <p className='auth-page__text'>
           Don't have an account? <Link to="/signup" className='auth-page__text--link'>Sing up</Link>
         </p>

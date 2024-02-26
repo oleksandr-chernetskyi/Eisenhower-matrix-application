@@ -1,13 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Root } from './Root';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
-  ReactDOM.render(
-    <Root />,
-    rootElement
-  );
+  createRoot(rootElement).render(<Root />);
 } else {
   console.error('Root element not found');
 }

@@ -11,6 +11,10 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { ErrorPage } from './pages/ErrorPage';
+import { ProfilePage } from './pages/ProfilePage';
+import { TasksPage } from './pages/TasksPage';
+import { SettingsPage } from './pages/SettingsPage';
+import { TaskOverview } from './pages/TaskOverview';
 
 export const Root = () => {
   return (
@@ -21,6 +25,12 @@ export const Root = () => {
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="signin" element={<LoginPage />} />
           <Route path="signup" element={<RegisterPage />} />
+          <Route path="profile">
+            <Route index element={<ProfilePage />} />
+            <Route path="tasks" element={<TasksPage />} />
+            <Route path="settings" element={<SettingsPage />} />
+            <Route path="task-overview" element={<TaskOverview />} />
+          </Route>
 
           <Route path="*" element={<ErrorPage />} />
         </Route>
