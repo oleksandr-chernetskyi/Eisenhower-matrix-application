@@ -1,4 +1,10 @@
 package team.emapp.dto.user;
 
-public record UserLoginResponseDto(String token) {
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@RequiredArgsConstructor
+public class UserLoginResponseDto {
+    private final String token;
 }

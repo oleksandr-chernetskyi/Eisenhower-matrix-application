@@ -63,11 +63,12 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findByEmail(authentication.getName())
 				.orElseThrow(() -> {
 					log.error("GetAuthenticatedUser method failed. "
-							+ "Can't find user by email: {}",
+									+ "Can't find user by email: {}",
 							authentication.getName());
 					return new EntityNotFoundException(
 							"Can't find user by email: "
-							+ authentication.getName());
+									+ authentication.getName());
 				});
 	}
+
 }

@@ -19,7 +19,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		return userRepository.findByEmail(email).orElseThrow(() -> {
 			log.error("loadUserByUsername method was failed."
 					+ "Can't find user by email: {}", email);
-			return new RuntimeException("Can't find user by email: " + email);
+			return new UsernameNotFoundException("Can't find user by email: " + email);
 		});
 	}
 }

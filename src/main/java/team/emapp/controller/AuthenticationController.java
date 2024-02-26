@@ -1,5 +1,7 @@
 package team.emapp.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,11 +21,13 @@ import team.emapp.service.UserService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/auth")
+@Tag(name = "Authentication Controller")
 public class AuthenticationController {
 	private final UserService userService;
 	private final AuthenticationService authenticationService;
 
-	@PostMapping("/register")
+	@Operation(summary = "Registration a new user")
+	@PostMapping("/registration")
 	public UserRegistrationResponseDto register(@RequestBody @Valid
 			UserRegistrationRequestDto userRegistrationRequestDto)
 			throws RegistrationException {
@@ -32,6 +36,7 @@ public class AuthenticationController {
 		return userService.register(userRegistrationRequestDto);
 	}
 
+	@Operation(summary = "Login of existing user")
 	@PostMapping("/login")
 	public UserLoginResponseDto login(@RequestBody UserLoginRequestDto userLoginRequestDto) {
 		log.info("Received login request for user with email: {}",
